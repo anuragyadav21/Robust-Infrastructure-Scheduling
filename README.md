@@ -11,7 +11,7 @@
 
 Human-readable narrative and equations: **[`REPORT.md`](REPORT.md)**. Submission-friendly PDF: **[`Final_Report.pdf`](Final_Report.pdf)** — embeds **Figures 1–5** (distributions, Gantt, Pareto, tail risk, λ trade-off) plus a **01–09 thumbnail montage** when plots exist; rebuild with `scripts/build_final_report_pdf.py` after `pip install markdown xhtml2pdf` (run both model scripts first so `plots/` and `plots_tradeoff/` are populated).
 
-**Suggested public repository name (GitHub):** `traffic-aware-infrastructure-optimization` or `robust-infrastructure-scheduling` — rename the remote when you publish; the local folder name can stay anything.
+**Repository:** [github.com/anuragyadav21/Robust-Infrastructure-Scheduling](https://github.com/anuragyadav21/Robust-Infrastructure-Scheduling)
 
 ---
 
@@ -322,7 +322,7 @@ Scenario IDs **S1–S4** and default **α, β, γ, λ** for optimised vs robust 
 
 ### Publishing to GitHub
 
-After `git init` / remote add, use a clean name such as **`traffic-aware-infrastructure-optimization`**. This assistant does **not** push to your remote; run `git push` yourself when ready.
+Remote: `https://github.com/anuragyadav21/Robust-Infrastructure-Scheduling.git` (branch `main`).
 
 ---
 
