@@ -91,7 +91,7 @@ The optimised schedule **reduces expected cost and traffic disruption** by movin
 - Executable models: `optimisation_model.py`, `tradeoff_study.py`
 - Decision tables: `actionable_decisions.csv`, sensitivity and Pareto CSVs
 - Nine publication-quality figures (distributions, Gantt, sensitivities, Pareto, tail risk)
-- Human-readable documentation: `README.md`, this report (`REPORT.md`), and **`Final_Report.pdf`** — PDF export that **embeds key result figures** (see §8); rebuild with `scripts/build_final_report_pdf.py` after `pip install markdown xhtml2pdf`, with plot folders populated by running both Python scripts first.
+- Human-readable documentation: `README.md` and this report (`REPORT.md`). Key result figures are in §8 (regenerate PNGs by running both Python scripts after clone).
 
 ---
 
@@ -590,11 +590,9 @@ The project delivers a **reproducible optimisation pipeline**, **decision tables
 |------|------|
 | `README.md` | Entry point: tree, run instructions, output locations |
 | `REPORT.md` | This technical report (Markdown source) |
-| `Final_Report.pdf` | PDF export of `REPORT.md` (regenerate with `scripts/build_final_report_pdf.py`) |
-| `scripts/build_final_report_pdf.py` | Optional: rebuild `Final_Report.pdf` (`pip install markdown xhtml2pdf`) |
 | `requirements.txt` | Runtime dependencies for the two models |
 | `LICENSE` | MIT licence |
-| `editROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx` | Optional editable report / thesis draft (not executed by Python) |
+| `ROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx` | Optional local thesis draft (gitignored; not executed by Python) |
 
 ### A.1 Code
 
@@ -658,7 +656,7 @@ The project delivers a **reproducible optimisation pipeline**, **decision tables
 
 Figures **01–05** are written to **`Model and solutions/plots/`** and **06–09** to **`O:P with pareto fronts/plots_tradeoff/`** when you run the scripts. Those directories are **gitignored** in this repository; regenerate them locally after clone. CSV outputs remain next to each script and **are** tracked in git.
 
-**Cross-reference (report vs file IDs):** **Figure 1** = `01_distributions.png`; **Figure 2** = `03_gantt.png`; **Figure 3** = `06_tradeoff_curves.png`; **Figure 4** = `08_tail_risk.png`; **Figure 5** = `09_lambda_tradeoff.png`. **`Final_Report.pdf`** embeds these five plus a thumbnail montage of **01–09** when the PNG folders are present at build time.
+**Cross-reference (report vs file IDs):** **Figure 1** = `01_distributions.png`; **Figure 2** = `03_gantt.png`; **Figure 3** = `06_tradeoff_curves.png`; **Figure 4** = `08_tail_risk.png`; **Figure 5** = `09_lambda_tradeoff.png`. A thumbnail montage of **01–09** is included in §8 when plot folders are present locally.
 
 ---
 

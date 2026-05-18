@@ -9,7 +9,7 @@
 | **Methods** | Mixed-integer programming (MIP) · Monte Carlo simulation · scenario-based robust optimisation |
 | **Stack** | Python 3.10+ · PuLP (CBC) · NumPy · Pandas · Matplotlib · SciPy |
 
-Human-readable narrative and equations: **[`REPORT.md`](REPORT.md)**. Submission-friendly PDF: **[`Final_Report.pdf`](Final_Report.pdf)** — embeds **Figures 1–5** (distributions, Gantt, Pareto, tail risk, λ trade-off) plus a **01–09 thumbnail montage** when plots exist; rebuild with `scripts/build_final_report_pdf.py` after `pip install markdown xhtml2pdf` (run both model scripts first so `plots/` and `plots_tradeoff/` are populated).
+Full technical narrative and equations: **[`REPORT.md`](REPORT.md)**. Key result figures (**01–09**) are generated locally under `plots/` and `plots_tradeoff/` when you run the two Python scripts (see [Configure paths and run](#configure-paths-and-run)).
 
 **Repository:** [github.com/anuragyadav21/Robust-Infrastructure-Scheduling](https://github.com/anuragyadav21/Robust-Infrastructure-Scheduling)
 
@@ -41,8 +41,8 @@ Human-readable narrative and equations: **[`REPORT.md`](REPORT.md)**. Submission
 | **`Baseline reference datasets/`** | Case-study inputs: cleaned CSV/JSON under `Dependency2/`, plus an Excel workbook source. |
 | **`Model and solutions/`** | Main script: baseline vs optimised vs robust MIP, 10k-run Monte Carlo per variant, sensitivity sweeps, figures **01–05**. |
 | **`O:P with pareto fronts/`** | Trade-off script: Pareto (cost–duration, cost–traffic), λ risk–cost curve, tail tables, figures **06–09**. |
-| **Documentation** | `README.md` (this file), `REPORT.md` (full technical report), `Final_Report.pdf` (PDF export). |
-| **Packaging** | `requirements.txt`, `LICENSE` (MIT), `scripts/build_final_report_pdf.py` (optional PDF rebuild). |
+| **Documentation** | `README.md` (this file) and `REPORT.md` (full technical report). |
+| **Packaging** | `requirements.txt`, `LICENSE` (MIT). |
 
 There is **one** canonical dataset for code: **`Baseline reference datasets/Dependency2/`**. There is no `Redundant/`, `Initial/`, or duplicate output tree in this checkout.
 
@@ -56,12 +56,8 @@ Below is the **logical** layout of the repository. **Figures are not listed** at
 .
 ├── README.md
 ├── REPORT.md
-├── Final_Report.pdf
 ├── LICENSE
 ├── requirements.txt
-├── editROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx
-├── scripts/
-│   └── build_final_report_pdf.py
 │
 ├── Baseline reference datasets/
 │   ├── Infrastructure_Project_Dataset.xlsx
@@ -109,7 +105,6 @@ Below is the **logical** layout of the repository. **Figures are not listed** at
 | `Baseline reference datasets/Infrastructure_Project_Dataset.xlsx` | Consolidated workbook; Dependency2 is the model-ready export. |
 | `Model and solutions/` | Core optimisation + simulation + sensitivities; CSVs committed; figures **01–05** in `plots/` after you run the main script. |
 | `O:P with pareto fronts/` | Pareto and tail-risk study; CSVs committed; figures **06–09** in `plots_tradeoff/` after you run the trade-off script. |
-| `editROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx` | Editable report / thesis draft (optional; not used by code). |
 
 ---
 
@@ -188,15 +183,6 @@ python "O:P with pareto fronts/tradeoff_study.py"
 ```
 
 Run **main model first**, then **trade-off study**. Runtime is typically **1–3 minutes** per script on a laptop (MIP + Monte Carlo).
-
-### Rebuild `Final_Report.pdf`
-
-```bash
-pip install markdown xhtml2pdf
-python scripts/build_final_report_pdf.py
-```
-
-(Uses `REPORT.md` as the single source of truth.)
 
 ---
 
@@ -315,9 +301,8 @@ Scenario IDs **S1–S4** and default **α, β, γ, λ** for optimised vs robust 
 | Item | Note |
 |------|------|
 | [`REPORT.md`](REPORT.md) | Full methodology, reproducibility, file inventory, parameter tables. |
-| [`Final_Report.pdf`](Final_Report.pdf) | PDF export of the technical report (regenerate with `scripts/build_final_report_pdf.py`). |
 | [`LICENSE`](LICENSE) | MIT licence. |
-| `editROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx` | Word source; not executed by Python. |
+| `ROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx` | Optional local thesis draft (gitignored; not used by code). |
 | `~$*.docx` | Microsoft Word lock file—safe to delete; listed in `.gitignore`. |
 
 ### Publishing to GitHub
