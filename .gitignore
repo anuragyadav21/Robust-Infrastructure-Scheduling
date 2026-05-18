@@ -1,0 +1,9 @@
+.venv/
+.venv_pdf/
+__pycache__/
+*.pyc
+.DS_Store
+~$*.docx
+ROBUST OPTIMISATION OF INFRASTRUCTURE SCHEDULING.docx
+plots/
+plots_tradeoff/

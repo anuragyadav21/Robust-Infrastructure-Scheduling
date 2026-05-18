@@ -1,0 +1,50 @@
+{
+  "_purpose": "Dynamic cost function spec \u2014 all inputs are variables, no hardcoded values",
+  "total_project_cost": {
+    "formula": "C_labour + C_equipment + C_material + C_overhead + C_penalty + C_social",
+    "components": {
+      "C_labour": {
+        "formula": "SUM over tasks: workers_required[t] * unit_cost[resource_type[t]] * actual_duration[t] * (1 + overtime_factor[t])",
+        "overtime_factor": "max(0, (daily_hours - 10) / 10) * (overtime_multiplier - 1)",
+        "idle_component": "idle_workers[t][d] * unit_cost[resource_type[t]] * idle_cost_fraction[resource_type[t]]"
+      },
+      "C_equipment": {
+        "formula": "SUM over tasks: SUM over equipment_types: units[t][eq] * equip_day_rate[eq] * actual_duration[t]",
+        "idle_component": "idle_equipment[t][d] * equip_day_rate[eq] * idle_cost_fraction['heavy_equipment']"
+      },
+      "C_material": {
+        "formula": "planned_material_cost * (1 + material_escalation_rate * delay_weeks[t])",
+        "escalation_trigger": "delay_days[t] > 0 AND delay_cause == 'MAT'"
+      },
+      "C_penalty": {
+        "formula": "max(0, total_project_delay_days) * delay_penalty_per_day",
+        "cascade_term": "SUM downstream_tasks: cascade_penalty_rate * planned_cost[downstream_t]"
+      },
+      "C_social": {
+        "formula": "SUM over days\u00d7blocks: is_peak[block] * delay_index[day][block] > 0.5 * traffic_disruption_rate * block_duration_hrs",
+        "note": "societal cost \u2014 not in contractor budget but in system objective"
+      },
+      "C_overhead": {
+        "formula": "fixed_daily_overhead * total_project_days + mobilisation_cost + demobilisation_cost"
+      }
+    },
+    "decision_variables_for_optimiser": [
+      "start_day[t]        \u2014 integer, day task t begins",
+      "block_assignment[t] \u2014 which time block each task runs in each day",
+      "workers_assigned[t][d] \u2014 integer, workers assigned per task per day",
+      "equipment_assigned[t][d][eq] \u2014 integer units per task per day"
+    ],
+    "parameters_from_csvs": {
+      "unit_cost[resource_type]": "cost_parameters_resources.csv \u2192 base_cost_per_unit_per_day_usd",
+      "overtime_multiplier[res]": "cost_parameters_resources.csv \u2192 overtime_rate_multiplier",
+      "idle_cost_fraction[res]": "cost_parameters_resources.csv \u2192 idle_cost_fraction",
+      "delay_penalty_per_day": "cost_parameters_events.csv \u2192 delay_penalty \u2192 variable_rate",
+      "traffic_disruption_rate": "cost_parameters_events.csv \u2192 traffic_disruption_social \u2192 variable_rate",
+      "dynamic_dm[t][d][block]": "traffic_schedule_multipliers.csv \u2192 dynamic_dm",
+      "delay_index[d][block]": "traffic_schedule_multipliers.csv \u2192 delay_index",
+      "workers_required[t]": "tasks_clean.csv \u2192 workers_required",
+      "equipment_required[t][eq]": "tasks_clean.csv \u2192 equip_* columns",
+      "planned_duration[t]": "tasks_clean.csv \u2192 planned_duration_days"
+    }
+  }
+}

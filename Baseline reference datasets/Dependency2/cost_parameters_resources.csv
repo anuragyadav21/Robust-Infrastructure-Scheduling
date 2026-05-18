@@ -1,0 +1,10 @@
+resource_type,base_cost_per_unit_per_day_usd,overtime_rate_multiplier,idle_cost_fraction,mobilisation_cost_usd,demobilisation_cost_usd,max_overtime_hrs_per_day
+general_labour,650,1.5,0.3,2000,1000,4
+survey_team,850,1.5,0.4,3000,1500,2
+specialist_crew,1200,1.75,0.45,5000,2500,3
+heavy_equipment,2400,1.8,0.6,15000,8000,2
+earthworks_crew,900,1.5,0.35,3500,2000,4
+paving_crew,1100,1.6,0.4,4000,2000,4
+paving_qc,1300,1.6,0.4,4500,2500,3
+traffic_mgmt,750,1.4,0.25,2500,1500,4
+qa_qc_team,950,1.5,0.35,3000,1500,2

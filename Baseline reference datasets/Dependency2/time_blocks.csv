@@ -1,0 +1,5 @@
+block_id,block_label,start_hour,end_hour,duration_hrs,is_peak,dm_baseline,notes
+B1,early,6,7,1,0,1.0,Low volume; preferred for noisy/heavy ops
+B2,peak_am,7,9,2,1,1.65,AM peak; avoid for lane closures where possible
+B3,midday,9,16,7,0,1.1,Optimal working window; high productivity
+B4,peak_pm,17,19,2,1,1.68,PM peak; avoid for high-impact tasks

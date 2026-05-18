@@ -1,0 +1,10 @@
+resource_type,max_units_available,daily_cost_per_unit_usd,unit
+general_labour,20,650,workers
+survey_team,6,850,workers
+specialist_crew,12,1200,workers
+heavy_equipment,6,2400,machines
+earthworks_crew,14,900,workers
+paving_crew,16,1100,workers
+paving_qc,10,1300,workers
+traffic_mgmt,10,750,workers
+qa_qc_team,6,950,workers

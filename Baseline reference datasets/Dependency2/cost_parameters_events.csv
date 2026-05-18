@@ -1,0 +1,11 @@
+event_type,fixed_cost_usd,variable_rate,rate_unit,applies_to
+delay_penalty,0,8500,usd_per_day_over_planned,project
+traffic_disruption_social,0,3200,usd_per_hr_delay_index_gt_05,corridor
+material_escalation,0,0.03,fraction_of_material_cost,per_week_of_delay
+equipment_breakdown,12000,2000,usd_fixed_plus_per_day_idle,per_event
+weather_shutdown,5000,1800,usd_fixed_plus_per_day_idle,per_event
+permit_delay,2000,400,usd_fixed_plus_per_day_idle,per_event
+quality_rework,3000,1500,usd_fixed_plus_per_day,per_defect
+cascade_penalty,0,0.1,fraction_of_downstream_cost,per_delayed_task
+overtime_trigger_hrs,0,10,hrs_per_day_threshold,per_worker
+contingency_rate,0,0.1,fraction_of_total_planned,project

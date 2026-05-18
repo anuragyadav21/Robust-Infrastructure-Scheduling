@@ -1,0 +1,6 @@
+equipment_type,total_units_available,day_rate_usd,idle_rate_usd,breakdown_prob_per_machine_day
+crane,2,1800,600,0.04
+milling_machine,3,2400,900,0.06
+excavator,4,1600,550,0.04
+compactor,4,1200,400,0.03
+paver,2,2000,700,0.05
